@@ -1,7 +1,8 @@
 package com.escalab.model;
 
 import javax.persistence.*;
-
+@Entity
+@Table(name = "vendedor")
 public class Vendedor {
 
     @Id
@@ -11,10 +12,8 @@ public class Vendedor {
     @ManyToOne
     @JoinColumn(name = "id_supervisor", nullable = false, foreignKey = @ForeignKey(name = "FK_vendedor_supervisor"))
     private Long idSupervisor;
-    @Column(name = "nombre", length = 30)
-    private String nombre;
-    @Column(name = "vendedor", length = 20)
-    private String vendedor;
+    @Column(name = "nombre_vendedor", length = 30)
+    private String nombreVendedor;
     @Column(name = "dir_vendedor", length = 50)
     private String dirVendedor;
 
@@ -34,20 +33,12 @@ public class Vendedor {
         this.idSupervisor = idSupervisor;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreVendedor() {
+        return nombreVendedor;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(String vendedor) {
-        this.vendedor = vendedor;
+    public void setNombreVendedor(String nombreVendedor) {
+        this.nombreVendedor = nombreVendedor;
     }
 
     public String getDirVendedor() {
