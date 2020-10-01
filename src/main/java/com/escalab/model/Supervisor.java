@@ -9,10 +9,8 @@ public class Supervisor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSupervisor;
-    @Column(name = "nombre", length = 30)
-    private String nombre;
-    @Column(name = "supervisor", length = 20)
-    private String supervisor;
+    @Column(name = "nombre_supervisor", length = 30)
+    private String nombreSupervisor;
     @Column(name = "dir_upervisor", length = 50)
     private String dirSupervisor;
     @Column(name = "tel_supervisor", length = 15)
@@ -26,20 +24,12 @@ public class Supervisor {
         this.idSupervisor = idSupervisor;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreSupervisor() {
+        return nombreSupervisor;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(String supervisor) {
-        this.supervisor = supervisor;
+    public void setNombreSupervisor(String nombreSupervisor) {
+        this.nombreSupervisor = nombreSupervisor;
     }
 
     public String getDirSupervisor() {
