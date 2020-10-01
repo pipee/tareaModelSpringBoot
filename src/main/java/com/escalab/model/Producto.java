@@ -14,10 +14,8 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_marca"))
     private Long idMarca;
-    @Column(name = "valor", length = 15)
-    private int valor;
-    @Column(name = "producto", length = 15)
-    private String producto;
+    @Column(name = "valor_producto", length = 15)
+    private float valorProducto;
 
     public Long getIdProducto() {
         return idProducto;
@@ -43,19 +41,37 @@ public class Producto {
         this.idMarca = idMarca;
     }
 
-    public int getValor() {
-        return valor;
+    public float getValorProducto() {
+        return valorProducto;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setValorProducto(float valorProducto) {
+        this.valorProducto = valorProducto;
     }
 
-    public String getProducto() {
-        return producto;
-    }
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idProducto == null) ? 0 : idProducto.hashCode());
+		return result;
+	}
 
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		if (idProducto == null) {
+			if (other.idProducto != null)
+				return false;
+		} else if (!idProducto.equals(other.idProducto))
+			return false;
+		return true;
+	}
+    
 }
