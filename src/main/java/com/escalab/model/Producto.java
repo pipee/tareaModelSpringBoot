@@ -13,7 +13,7 @@ public class Producto {
     private String descripcion;
     @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_marca"))
-    private long idMarca;
+    private Marca marca;
     @Column(name = "valor_producto", length = 15)
     private float valorProducto;
 
@@ -33,12 +33,12 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public long getIdMarca() {
-        return idMarca;
+    public Marca getMarca() {
+        return marca;
     }
 
-    public void setIdMarca(long idMarca) {
-        this.idMarca = idMarca;
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public float getValorProducto() {
@@ -49,28 +49,18 @@ public class Producto {
         this.valorProducto = valorProducto;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (idProducto ^ (idProducto >>> 32));
-		return result;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Producto other = (Producto) obj;
-		if (idProducto != other.idProducto)
-			return false;
-		return true;
-	}
+        Producto producto = (Producto) o;
 
-    
-    
+        return getIdProducto() == producto.getIdProducto();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (getIdProducto() ^ (getIdProducto() >>> 32));
+    }
 }

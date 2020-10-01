@@ -11,7 +11,7 @@ public class Vendedor {
 
     @ManyToOne
     @JoinColumn(name = "id_supervisor", nullable = false, foreignKey = @ForeignKey(name = "FK_vendedor_supervisor"))
-    private long idSupervisor;
+    private Supervisor supervisor;
     @Column(name = "nombre_vendedor", length = 30)
     private String nombreVendedor;
     @Column(name = "dir_vendedor", length = 50)
@@ -25,12 +25,12 @@ public class Vendedor {
         this.idVendedor = idVendedor;
     }
 
-    public long getIdSupervisor() {
-        return idSupervisor;
+    public Supervisor getSupervisor() {
+        return supervisor;
     }
 
-    public void setIdSupervisor(long idSupervisor) {
-        this.idSupervisor = idSupervisor;
+    public void setSupervisor(Supervisor supervisor) {
+        this.supervisor = supervisor;
     }
 
     public String getNombreVendedor() {

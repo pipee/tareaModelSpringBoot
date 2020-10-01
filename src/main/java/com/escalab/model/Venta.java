@@ -12,10 +12,10 @@ public class Venta {
     private long idVenta;
     @ManyToOne
     @JoinColumn(name = "id_vendedor", nullable = false, foreignKey = @ForeignKey(name = "FK_venta_vendedores"))
-    private long idVendedor;
+    private Vendedor vendedor;
     @ManyToOne
     @JoinColumn(name = "id_cliente", nullable = false, foreignKey = @ForeignKey(name = "FK_venta_cliente"))
-    private long idCliente;
+    private Cliente cliente;
 
     @Column(name = "costo", nullable = false)
     private float Costo;
@@ -31,20 +31,20 @@ public class Venta {
         this.idVenta = idVenta;
     }
 
-    public long getIdVendedor() {
-        return idVendedor;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
 
-    public void setIdVendedor(long idVendedor) {
-        this.idVendedor = idVendedor;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public float getCosto() {
@@ -63,28 +63,18 @@ public class Venta {
         this.fechaVenta = fechaVenta;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (idVenta ^ (idVenta >>> 32));
-		return result;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Venta other = (Venta) obj;
-		if (idVenta != other.idVenta)
-			return false;
-		return true;
-	}
+        Venta venta = (Venta) o;
 
-	
-    
+        return getIdVenta() == venta.getIdVenta();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (getIdVenta() ^ (getIdVenta() >>> 32));
+    }
 }
