@@ -8,7 +8,7 @@ public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMarca;
+    private long idMarca;
     @Column(name = "descripcion", length = 70)
     private String descripcion;
     @Column(name = "direccion", length = 70)
@@ -16,11 +16,11 @@ public class Marca {
     @Column(name = "ciudad", length = 30)
     private String ciudad;
 
-    public Long getIdMarca() {
+    public long getIdMarca() {
         return idMarca;
     }
 
-    public void setIdMarca(Long idMarca) {
+    public void setIdMarca(long idMarca) {
         this.idMarca = idMarca;
     }
 

@@ -9,13 +9,13 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVenta;
+    private long idVenta;
     @ManyToOne
     @JoinColumn(name = "id_vendedor", nullable = false, foreignKey = @ForeignKey(name = "FK_venta_vendedores"))
-    private Long idVendedor;
+    private long idVendedor;
     @ManyToOne
     @JoinColumn(name = "id_cliente", nullable = false, foreignKey = @ForeignKey(name = "FK_venta_cliente"))
-    private Long idCliente;
+    private long idCliente;
 
     @Column(name = "costo", nullable = false)
     private float Costo;
@@ -23,27 +23,27 @@ public class Venta {
     @Column(nullable = false)
     private LocalDateTime fechaVenta;
 
-    public Long getIdVenta() {
+    public long getIdVenta() {
         return idVenta;
     }
 
-    public void setIdVenta(Long idVenta) {
+    public void setIdVenta(long idVenta) {
         this.idVenta = idVenta;
     }
 
-    public Long getIdVendedor() {
+    public long getIdVendedor() {
         return idVendedor;
     }
 
-    public void setIdVendedor(Long idVendedor) {
+    public void setIdVendedor(long idVendedor) {
         this.idVendedor = idVendedor;
     }
 
-    public Long getIdCliente() {
+    public long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -67,7 +67,7 @@ public class Venta {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idVenta == null) ? 0 : idVenta.hashCode());
+		result = prime * result + (int) (idVenta ^ (idVenta >>> 32));
 		return result;
 	}
 
@@ -80,12 +80,11 @@ public class Venta {
 		if (getClass() != obj.getClass())
 			return false;
 		Venta other = (Venta) obj;
-		if (idVenta == null) {
-			if (other.idVenta != null)
-				return false;
-		} else if (!idVenta.equals(other.idVenta))
+		if (idVenta != other.idVenta)
 			return false;
 		return true;
 	}
+
+	
     
 }

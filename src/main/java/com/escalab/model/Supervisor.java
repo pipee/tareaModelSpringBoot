@@ -8,7 +8,7 @@ public class Supervisor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSupervisor;
+    private long idSupervisor;
     @Column(name = "nombre_supervisor", length = 30)
     private String nombreSupervisor;
     @Column(name = "dir_upervisor", length = 50)
@@ -16,11 +16,11 @@ public class Supervisor {
     @Column(name = "tel_supervisor", length = 15)
     private String telSupervisor;
 
-    public Long getIdSupervisor() {
+    public long getIdSupervisor() {
         return idSupervisor;
     }
 
-    public void setIdSupervisor(Long idSupervisor) {
+    public void setIdSupervisor(long idSupervisor) {
         this.idSupervisor = idSupervisor;
     }
 

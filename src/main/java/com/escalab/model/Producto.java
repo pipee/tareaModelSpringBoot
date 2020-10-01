@@ -8,20 +8,20 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProducto;
+    private long idProducto;
     @Column(name = "descripcion", length = 70)
     private String descripcion;
     @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_marca"))
-    private Long idMarca;
+    private long idMarca;
     @Column(name = "valor_producto", length = 15)
     private float valorProducto;
 
-    public Long getIdProducto() {
+    public long getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Long idProducto) {
+    public void setIdProducto(long idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -33,11 +33,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Long getIdMarca() {
+    public long getIdMarca() {
         return idMarca;
     }
 
-    public void setIdMarca(Long idMarca) {
+    public void setIdMarca(long idMarca) {
         this.idMarca = idMarca;
     }
 
@@ -49,11 +49,11 @@ public class Producto {
         this.valorProducto = valorProducto;
     }
 
-    @Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idProducto == null) ? 0 : idProducto.hashCode());
+		result = prime * result + (int) (idProducto ^ (idProducto >>> 32));
 		return result;
 	}
 
@@ -66,12 +66,11 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
-		if (idProducto == null) {
-			if (other.idProducto != null)
-				return false;
-		} else if (!idProducto.equals(other.idProducto))
+		if (idProducto != other.idProducto)
 			return false;
 		return true;
 	}
+
+    
     
 }
