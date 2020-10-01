@@ -9,10 +9,8 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
-    @Column(name = "nombre", length = 30)
-    private String nombre;
-    @Column(name = "cliente", length = 20)
-    private String cliente;
+    @Column(name = "nombre_cliente", length = 30)
+    private String nombreCliente;
     @Column(name = "dir_cliente", length = 50)
     private String dirCliente;
     @Column(name = "telCliente", length = 15)
@@ -26,20 +24,12 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public String getDirCliente() {
