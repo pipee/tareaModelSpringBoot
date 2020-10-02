@@ -18,7 +18,7 @@ public class Venta {
     private Cliente cliente;
 
     @Column(name = "costo", nullable = false)
-    private float Costo;
+    private float costo;
 
     @Column(nullable = false)
     private LocalDateTime fechaVenta;
@@ -48,11 +48,11 @@ public class Venta {
     }
 
     public float getCosto() {
-        return Costo;
+        return costo;
     }
 
     public void setCosto(float costo) {
-        Costo = costo;
+        this.costo = costo;
     }
 
     public LocalDateTime getFechaVenta() {

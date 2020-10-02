@@ -3,49 +3,35 @@ package com.escalab.model;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable
 public class CompraProductoPK implements Serializable {
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_venta", nullable = false)
     private Venta venta;
     
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
-		result = prime * result + ((venta == null) ? 0 : venta.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		CompraProductoPK that = (CompraProductoPK) o;
+
+		if (venta != null ? !venta.equals(that.venta) : that.venta != null) return false;
+		return producto != null ? producto.equals(that.producto) : that.producto == null;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CompraProductoPK other = (CompraProductoPK) obj;
-		if (producto == null) {
-			if (other.producto != null)
-				return false;
-		} else if (!producto.equals(other.producto))
-			return false;
-		if (venta == null) {
-			if (other.venta != null)
-				return false;
-		} else if (!venta.equals(other.venta))
-			return false;
-		return true;
+	public int hashCode() {
+		int result = venta != null ? venta.hashCode() : 0;
+		result = 31 * result + (producto != null ? producto.hashCode() : 0);
+		return result;
 	}
-    
-    
 }
