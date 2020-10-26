@@ -7,7 +7,7 @@ public class Vendedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idVendedor;
+    private Long idVendedor;
 
     @ManyToOne
     @JoinColumn(name = "id_supervisor", nullable = false, foreignKey = @ForeignKey(name = "FK_vendedor_supervisor"))
@@ -17,11 +17,11 @@ public class Vendedor {
     @Column(name = "dir_vendedor", length = 50)
     private String dirVendedor;
 
-    public long getIdVendedor() {
+    public Long getIdVendedor() {
         return idVendedor;
     }
 
-    public void setIdVendedor(long idVendedor) {
+    public void setIdVendedor(Long idVendedor) {
         this.idVendedor = idVendedor;
     }
 

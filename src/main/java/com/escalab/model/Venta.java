@@ -9,7 +9,7 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idVenta;
+    private Long idVenta;
     @ManyToOne
     @JoinColumn(name = "id_vendedor", nullable = false, foreignKey = @ForeignKey(name = "FK_venta_vendedores"))
     private Vendedor vendedor;
@@ -23,11 +23,11 @@ public class Venta {
     @Column(nullable = false)
     private LocalDateTime fechaVenta;
 
-    public long getIdVenta() {
+    public Long getIdVenta() {
         return idVenta;
     }
 
-    public void setIdVenta(long idVenta) {
+    public void setIdVenta(Long idVenta) {
         this.idVenta = idVenta;
     }
 

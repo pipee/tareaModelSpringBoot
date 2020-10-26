@@ -8,7 +8,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idProducto;
+    private Long idProducto;
     @Column(name = "descripcion", length = 70)
     private String descripcion;
     @ManyToOne
@@ -17,11 +17,11 @@ public class Producto {
     @Column(name = "valor_producto", length = 15)
     private float valorProducto;
 
-    public long getIdProducto() {
+    public Long getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(long idProducto) {
+    public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
 
